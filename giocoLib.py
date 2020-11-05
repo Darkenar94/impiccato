@@ -11,7 +11,7 @@ def stampa(stringa):
 def disegna_impiccato(testa, b_sx, b_dx, torso, g_sx, g_dx, c_1, c_2, c_3, c_4, c_5, c_6, stringa):
     print("\n"*20)#100
     print("""
-  +-------
+  +------+
   |      |
   |      {}
   |     {}{}{}
