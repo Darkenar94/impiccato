@@ -3,24 +3,11 @@ import random
 from giocoLib import *
 from impostazioni import *
 
-testo = ottieni_testo()
-lista = ottieni_lista(testo)
-parole = ottieni_parole(lista)
-
 vittoria = "\nhai vinto!"
 avvertimento = "attenzione: lettera utilizzata / carattere non consentito"
-parola = random.choice(parole)
-stringa = parola[0] + "_" *len(parola[1:-1]) + parola[-1]
 
-simboli = " \"'!|<>,;.:_-+*}]#ç¸@§˘?^~`=)(/&%$£1234567890"
-caratteri = list(simboli)
-posizioni = []
-caratteri_errati = []
-
-punteggio = 6
-
-impostazioni = Impostazioni(parola, stringa, caratteri, posizioni, caratteri_errati, punteggio)
-controlla_punteggio(punteggio, caratteri_errati, stringa, parola)
+impostazioni = Impostazioni()
+controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
 
 while True:
     carattere = input("\nlettera: ")
@@ -28,9 +15,9 @@ while True:
     if ha_vinto(carattere, impostazioni.parola):
         print(vittoria)
         if continua():
-            impostazioni.parola = random.choice(parole)
+            impostazioni.parola = random.choice(impostazioni.parole)
             impostazioni.stringa = impostazioni.parola[0] + "_" *len(impostazioni.parola[1:-1]) + impostazioni.parola[-1]
-            impostazioni.caratteri = list(simboli)
+            impostazioni.caratteri = list(impostazioni.simboli)
             impostazioni.posizioni = []
             impostazioni.caratteri_errati = []
             impostazioni.punteggio = 6
@@ -47,9 +34,9 @@ while True:
             if ha_vinto(impostazioni.stringa, impostazioni.parola):
                 print(vittoria)
                 if continua():
-                    impostazioni.parola = random.choice(parole)
+                    impostazioni.parola = random.choice(impostazioni.parole)
                     impostazioni.stringa = impostazioni.parola[0] + "_" *len(impostazioni.parola[1:-1]) + impostazioni.parola[-1]
-                    impostazioni.caratteri = list(simboli)
+                    impostazioni.caratteri = list(impostazioni.simboli)
                     impostazioni.posizioni = []
                     impostazioni.caratteri_errati = []
                     impostazioni.punteggio = 6
@@ -59,7 +46,7 @@ while True:
         else:
             print(avvertimento)
     else:
-        if not presente(carattere, impostazioni.caratteri_errati) and carattere not in simboli:
+        if not presente(carattere, impostazioni.caratteri_errati) and carattere not in impostazioni.simboli:
             impostazioni.caratteri_errati.append(carattere)
             impostazioni.punteggio -= 1
             if controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola):
