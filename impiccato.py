@@ -41,7 +41,7 @@ while True:
         gestisci_lunghezza(carattere, avvertimento)
     elif presente(carattere, impostazioni.parola):
         if not presente(carattere, impostazioni.caratteri):
-            caratteri.append(carattere)
+            impostazioni.caratteri.append(carattere)
             impostazioni.posizioni = ottieni_posizioni(impostazioni.parola, carattere, impostazioni.posizioni)
             impostazioni.stringa = ottieni_stringa(impostazioni.posizioni, impostazioni.parola, impostazioni.punteggio, impostazioni.caratteri_errati)
             if ha_vinto(impostazioni.stringa, impostazioni.parola):
