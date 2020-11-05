@@ -7,7 +7,7 @@ vittoria = "\nhai vinto!"
 avvertimento = "attenzione: lettera utilizzata / carattere non consentito"
 
 impostazioni = Impostazioni()
-controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
+controlla_stato(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
 
 while True:
     carattere = input("\nlettera: ")
@@ -21,7 +21,7 @@ while True:
             impostazioni.posizioni = []
             impostazioni.caratteri_errati = []
             impostazioni.punteggio = 6
-            controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
+            controlla_stato(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
         else:
             break
     elif len(carattere) > 1 or len(carattere) < 1:
@@ -40,7 +40,7 @@ while True:
                     impostazioni.posizioni = []
                     impostazioni.caratteri_errati = []
                     impostazioni.punteggio = 6
-                    controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
+                    controlla_stato(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola)
                 else:
                     break
         else:
@@ -49,7 +49,7 @@ while True:
         if not presente(carattere, impostazioni.caratteri_errati) and carattere not in impostazioni.simboli:
             impostazioni.caratteri_errati.append(carattere)
             impostazioni.punteggio -= 1
-            if controlla_punteggio(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola):
+            if controlla_stato(impostazioni.punteggio, impostazioni.caratteri_errati, impostazioni.stringa, impostazioni.parola):
                 break
         else:
             print(avvertimento)

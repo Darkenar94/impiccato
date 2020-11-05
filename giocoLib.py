@@ -22,7 +22,7 @@ def disegna_impiccato(testa, b_sx, b_dx, torso, g_sx, g_dx, c_1, c_2, c_3, c_4, 
   """.format(testa, b_sx, torso, b_dx, g_sx, g_dx, c_1, c_2, c_3, c_4, c_5, c_6))
     stampa(stringa)
 
-def controlla_punteggio(punteggio, caratteri_errati, stringa, parola):
+def controlla_stato(punteggio, caratteri_errati, stringa, parola):
     if punteggio == 0:
         disegna_impiccato("O", "/", "\\", "|", "/", "\\",   caratteri_errati[0].upper(), caratteri_errati[1].upper(), caratteri_errati[2].upper(), caratteri_errati[3].upper(), caratteri_errati[4].upper(), caratteri_errati[5].upper(), stringa)
         print("la parola era {} hai perso!\n".format(parola.upper()))
@@ -75,7 +75,7 @@ def ottieni_lettere(parola, posizioni):
 def ottieni_stringa(posizioni, parola, punteggio, caratteri_errati):
     lettere = ottieni_lettere(parola, posizioni)
     stringa = ottieni_parola(lettere)
-    controlla_punteggio(punteggio, caratteri_errati, stringa, parola)
+    controlla_stato(punteggio, caratteri_errati, stringa, parola)
     return stringa
 
 def ottieni_posizioni(parola, carattere, posizioni):
@@ -113,5 +113,5 @@ def resetta(parole, simboli):
     posizioni = []
     caratteri_errati = []
     punteggio = 6
-    controlla_punteggio(punteggio, caratteri_errati, stringa, parola)
+    controlla_stato(punteggio, caratteri_errati, stringa, parola)
     return parola, stringa, caratteri, posizioni, caratteri_errati, punteggio
