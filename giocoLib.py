@@ -105,13 +105,3 @@ def continua():
         print("Bye, bye! =)")
         return False
     return continua()
-
-def resetta(parole, simboli):
-    parola = random.choice(parole)
-    stringa = parola[0] + "_" *len(parola[1:-1]) + parola[-1]
-    caratteri = list(simboli)
-    posizioni = []
-    caratteri_errati = []
-    punteggio = 6
-    controlla_stato(punteggio, caratteri_errati, stringa, parola)
-    return parola, stringa, caratteri, posizioni, caratteri_errati, punteggio
